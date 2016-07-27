@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="dise_registrarsolicitud.css"/>
+	<title>DerechoDePEticion</title>
+</h:head>
+<h:body>
+	<center>
+	<table>
+		<tr>
+			<td><img src="logoucatolica.png"/> </td>
+			<td>
+				<div class="centro">
+					<table>	
+						<tr>
+							<td><strong><p:outputLabel styleClass="datos3" value="#{beanRegistrarSolicitud.bienvenida}"> </p:outputLabel></strong></td>
+						</tr>		
+						<tr>
+							<td><strong><p:outputLabel styleClass="datos1" value="#{beanRegistrarSolicitud.nombresolicitante}"></p:outputLabel><p:outputLabel styleClass="datos2" value="#{beanRegistrarSolicitud.apellidosolicitante}"></p:outputLabel></strong></td>					
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	</center>	
+			
+	
+	<h:form><center>
+		<div id="div">
+		<p:breadCrumb>
+    		<p:menuitem value="#{beanRegistrarSolicitud.opcion1}"  >
+        		<f:param name="i" value="0" />
+    		</p:menuitem>
+    		<p:menuitem value="#{beanRegistrarSolicitud.opcion1}" url="menu.xhtml" >
+        		<f:param name="i" value="0" />
+    		</p:menuitem>
+    		<p:menuitem value="Estructura" url="organigrama.xhtml">
+       					<f:param name="i" value="6" />
+    				</p:menuitem>
+    		<p:menuitem value="#{beanRegistrarSolicitud.opcion2}"  url="registrarsolicitud.xhtml">
+        		<f:param name="i" value="1" />
+    		</p:menuitem>
+    		<p:menuitem value="#{beanRegistrarSolicitud.opcion3}" url="consultaciudadana.xhtml">
+        		<f:param name="i" value="2" />
+    		</p:menuitem>
+    		<p:menuitem value="#{beanRegistrarSolicitud.opcion4}" url="registrarreposicion.xhtml">
+        		<f:param name="i" value="3" />
+    		</p:menuitem>
+    		<p:menuitem value="#{beanRegistrarSolicitud.opcion5}" action="#{beanRegistrarSolicitud.cerrarsesion()}" url="index.xhtml">
+        		<f:param name="i" value="4" />
+    		</p:menuitem>
+		</p:breadCrumb>
+		</div>
+		<br></br>
+		<br></br>
+		<h1 id="titulo">FORMULARIO DE SOLICITUD DE INFORMACIÓN</h1>
+		
+		
+		<h6 id="nota1">* Los datos que tengan * son de carácter obligatorio.</h6>			
+		
+		<p:growl id="msgs" showDetail="true" />
+    		<h:panelGrid columns="2" cellpadding="5" >
+    			<!-- <p:outputLabel styleClass="msj1"  value="#{beanRegistrarSolicitud.textlabelnombre}"></p:outputLabel><p:inputText placeholder="#{beanRegistrarSolicitud.tectcajanombre}"></p:inputText>-->
+				<!-- <p:outputLabel styleClass="msj2"  value="#{beanRegistrarSolicitud.textlabelcargo}"></p:outputLabel><p:inputText placeholder="#{beanRegistrarSolicitud.tectcajacargo}"></p:inputText>-->
+				<p:row>
+					<p:column>
+						<p:outputLabel ALIGN="left" styleClass="msj3"  value="#{beanRegistrarSolicitud.textlabelentidad}"></p:outputLabel>
+					</p:column>		
+					<p:column>
+						<p:selectOneMenu ALIGN="left" value="#{beanRegistrarSolicitud.empresa}" style="width:200px">
+		        			<f:selectItem itemLabel="Seleccionar empresa" itemValue="" noSelectionOption="true" />
+		        			<f:selectItems value="#{beanRegistrarSolicitud.empresas}" />  
+		        			<p:ajax listener="#{beanRegistrarSolicitud.init()}" update="area" />      			
+		        			<!--<f:ajax listener="#{beanRegistrarSolicitud.areas}"></f:ajax>-->
+		        		</p:selectOneMenu>
+        			</p:column>
+        		</p:row>
+        		<br></br>
+        		<p:row>
+        			<p:column>
+        				<p:outputLabel ALIGN="left" styleClass="msj6" value="#{beanRegistrarSolicitud.textlabelarea}" for="area"></p:outputLabel>	
+        			</p:column>
+        			<p:column>
+        				<p:selectOneMenu ALIGN="left" id="area" value="#{beanRegistrarSolicitud.area}" style="width:200px">
+			       			<f:selectItem itemLabel="Seleccionar area" itemValue="" noSelectionOption="true" />
+			       			<f:selectItems value="#{beanRegistrarSolicitud.areas}" />
+        				</p:selectOneMenu>
+        			</p:column>
+        		</p:row>
+        		<br></br>
+        		<p:row>
+        			<p:column>
+        				<p:outputLabel ALIGN="left" styleClass="msj4" value="#{beanRegistrarSolicitud.textlabeltipo}"></p:outputLabel>	
+        			</p:column>
+        			<p:column>
+        				<p:selectOneMenu  ALIGN="left" value="#{beanRegistrarSolicitud.tipo}" style="width:200px">
+		        			<f:selectItem itemLabel="Seleccionar tipo" itemValue="" noSelectionOption="true" />
+		        			<f:selectItems value="#{beanRegistrarSolicitud.tipos}" />
+		        		</p:selectOneMenu>	
+        			</p:column>
+        		</p:row>
+    	</h:panelGrid>        
+    	
+    	<table>
+       		<tr>
+       			<td><p:outputLabel styleClass="msj7" value="#{beanRegistrarSolicitud.textlabelobservaciones}"></p:outputLabel></td>
+				<td><p:inputTextarea value="#{beanRegistrarSolicitud.observaciones}" rows="5" cols="30" maxlength="250" counterTemplate="{0} caracteres disponibles." autoResize="false" /></td>
+    			
+    		</tr>
+    		<tr>
+	    		<td class="transparente"></td>
+    			<td><h:outputText styleClass="display" /></td>
+    		</tr>
+    	</table>
+    	<h6 id="nota2">*Medio por el cual nos podemos comunicar en caso de alguna inquietud.</h6>
+    	<table>
+    		<tr >
+    			<td align="left">
+    				<p:selectManyCheckbox>
+						<f:selectItem itemLabel="#{beanRegistrarSolicitud.checkboxcooreo}" itemValue="#{beanRegistrarSolicitud.checkboxcooreo}" />
+					</p:selectManyCheckbox>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<p:selectManyCheckbox>
+			    		<f:selectItem ALIGN="left" itemLabel="#{beanRegistrarSolicitud.checkboxcelular}" itemValue="#{beanRegistrarSolicitud.checkboxcelular}" />
+					</p:selectManyCheckbox>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<p:selectManyCheckbox>
+						<f:selectItem ALIGN="left" itemLabel="#{beanRegistrarSolicitud.checkboxdireccionfisica}" itemValue="#{beanRegistrarSolicitud.checkboxdireccionfisica}" />
+					</p:selectManyCheckbox>
+				</td>
+			</tr>
+		</table>
+    	<br />		
+		<p:commandButton styleClass="previsualizacion" value="#{beanRegistrarSolicitud.textbotonprevisualizacion}" actionListener="#{beanRegistrarSolicitud.previsualizacion()}">
+			<p:fileDownload value="#{beanRegistrarSolicitud.file}" />
+    	</p:commandButton>
+	   	<br />
+		<br />
+		<p:commandButton styleClass="enviar" value="#{beanRegistrarSolicitud.textbotonenviar}" action="#{beanRegistrarSolicitud.registrar_peticion()}" actionListener="#{beanRegistrarSolicitud.saveMessage()}"/>
+	</center></h:form>
+	<br />
+	<br />	
+</h:body>
+</html>

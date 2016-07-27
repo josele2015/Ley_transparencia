@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="dise_index.css"/>
+	<title>DerechoDePEticion</title>
+</h:head> 
+<h:body>
+	<center><img src="logoucatolica.png"/></center>
+	        
+	<center>
+		<h:form>		
+			<p:inputText styleClass="caja" required="true" placeholder="#{beanCerrarSesion.textocajausuario}" value="#{beanCerrarSesion.textocajausuario}"></p:inputText>
+			<br></br>
+			<br></br>
+			<p:password styleClass="cajas" required="true" placeholder="#{beanCerrarSesion.textocajacontrasena}" value="#{beanCerrarSesion.textocajacontrasena}"></p:password>
+			<br></br>
+			<br></br>
+		
+			<p:commandButton styleClass="botoniniciar" value="#{beanCerrarSesion.textobotoniniciarsesion}" action="#{beanCerrarSesion.iniciarsesion()}" url="menu.xhtml"></p:commandButton>
+			<br></br>
+			<br></br>
+			<p:outputLabel styleClass="link" value="#{beanCerrarSesion.textolink}"></p:outputLabel>
+			<br></br>
+			<br></br>
+		</h:form>
+		<h:form>		
+			<p:commandButton styleClass="botonregistrar" value="#{beanCerrarSesion.textobotonregistrarusuario}" action="#{beanCerrarSesion.cambio_registrarse()}" url="registrarusuario.xhtml"></p:commandButton>
+		</h:form>
+    </center>
+</h:body> 
+</html>

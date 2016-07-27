@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="dise_registrarusuario.css"/>
+	<title>DerechoDePEticion</title>
+</h:head> 
+<h:body>
+	<center><img src="logoucatolica.png"/></center>
+	  
+	<center>
+	
+		<h:form>
+			<table>
+				<tr>		
+					<td><p:outputLabel styleClass="labelnombre" value="#{beanRegistrarUsuario.textlabelnombre}"></p:outputLabel></td><td><p:inputText styleClass="transparente1" placeholder="#{beanRegistrarUsuario.textcajanombre}" value="#{beanRegistrarUsuario.nombre}"></p:inputText></td>
+					<td><p:outputLabel styleClass="labelapellido" value="#{beanRegistrarUsuario.textlabelapellido}"></p:outputLabel></td><td><p:inputText styleClass="transparente3" placeholder="#{beanRegistrarUsuario.textcajaapellido}" value="#{beanRegistrarUsuario.apellido}"></p:inputText></td>
+				</tr>
+			
+				<tr>
+					<td><p:outputLabel styleClass="labelcedula" value="#{beanRegistrarUsuario.textlabecedula}"></p:outputLabel></td><td><p:inputText styleClass="transparente2" placeholder="#{beanRegistrarUsuario.textcajacedula}" value="#{beanRegistrarUsuario.cedula}"></p:inputText></td>
+					<td><p:outputLabel styleClass="labelcelular" value="#{beanRegistrarUsuario.textlabelcelular}"></p:outputLabel></td><td><p:inputText styleClass="transparente4" placeholder="#{beanRegistrarUsuario.textcajacelular}" value="#{beanRegistrarUsuario.celular}"></p:inputText></td>
+				</tr>
+
+				<tr>
+					<td><p:outputLabel styleClass="labeldireccion" value="#{beanRegistrarUsuario.textlabeldireccion}"></p:outputLabel></td><td><p:inputText styleClass="transparente10" placeholder="#{beanRegistrarUsuario.textcajadireccion}" value="#{beanRegistrarUsuario.direccion}"></p:inputText></td>
+					<td><p:outputLabel styleClass="labelemail" value="#{beanRegistrarUsuario.textlabelemail}"></p:outputLabel></td><td><p:inputText styleClass="transparente6" placeholder="#{beanRegistrarUsuario.textcajaemail}" value="#{beanRegistrarUsuario.email}"></p:inputText></td>
+				</tr>
+			
+				<tr>
+					<td><p:outputLabel styleClass="labelentidad" value="#{beanRegistrarUsuario.textlabelentidad}"></p:outputLabel></td><td><p:inputText styleClass="transparente7" placeholder="#{beanRegistrarUsuario.textcajaentidad}"></p:inputText></td>
+					<td><p:outputLabel styleClass="labellicencia" value="#{beanRegistrarUsuario.textlabellicencia}"></p:outputLabel></td><td><p:inputText styleClass="transparente8" placeholder="#{beanRegistrarUsuario.textcajalicencia}" value="#{beanRegistrarUsuario.textcajalicencia}"></p:inputText></td>
+				</tr>
+			
+				<tr>
+					<td><p:outputLabel styleClass="labelcontrasena" value="#{beanRegistrarUsuario.textlabelcontrasena}"></p:outputLabel></td><td><p:inputText styleClass="transparente5" placeholder="#{beanRegistrarUsuario.textcajacontrasena}" value="#{beanRegistrarUsuario.contrasena}"></p:inputText></td>
+					<td><p:outputLabel styleClass="labelrepcontrasena" value="#{beanRegistrarUsuario.textlabelrepetircontra}"></p:outputLabel></td><td><p:inputText styleClass="transparente9" placeholder="#{beanRegistrarUsuario.textcajarepetircontra}" value="#{beanRegistrarUsuario.repetircontrasena}"></p:inputText></td>
+					
+				</tr>
+			</table>
+		
+			<p:commandButton styleClass="botonregistrar" value="#{beanRegistrarUsuario.textbotonregistrarse}" action="#{beanRegistrarUsuario.registrarusuario()}"></p:commandButton>
+    	</h:form>
+    </center>
+</h:body> 
+</html>

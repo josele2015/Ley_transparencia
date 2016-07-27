@@ -1,0 +1,79 @@
+@CHARSET "ISO-8859-1";
+#transparente{
+	color: tranparent;
+	color: white;
+}
+
+.enviar{
+	color: #FFFFFF;
+	background: #FFB253;
+}
+
+.previsualizacion{
+	color: #FFFFFF;
+	background: #92D36E;
+}
+
+.datos1{
+	color: #629C44;
+}
+
+.datos2{
+	color: #629C44;
+}
+
+.datos3{
+	color: #629C44;
+}
+#nota{
+	color:#1464F6;
+}
+
+#msj1, #msj2, #msj3, #msj4, #msj5, #msj6{
+	color:red;
+}
+
+.izquierdo{
+	float: left;
+	width: 25%;
+}
+
+.centro{
+	float: center;
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+.derecho{
+	float: right;
+	width: 25%;
+}
+
+#div{
+	float: left;
+	width: 68%;
+	margin-left: 16%;
+	margin-right: 16%;
+}
+
+#div2{
+	float: left;
+	width: 68%;
+	margin-left: 16%;
+	margin-right: 16%;
+}
+
+.labelusuario{
+	color:#629C44;
+}
+
+#titulo{
+	color: #629C44;
+}
+#nota1{
+	color:#E61610;
+}
+#nota2{
+	color:#E61610;
+}

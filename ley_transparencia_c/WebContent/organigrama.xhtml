@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="dise_registrarsolicitud.css"/>
+	<title>DerechoDePEticion</title>
+</h:head> 
+<h:body>
+	<center>
+	<table>
+		<tr>
+			<td><img src="logoucatolica.png"/> </td>
+			<td>
+				<div class="centro">
+					<table>	
+						<tr>
+							<td><strong><p:outputLabel styleClass="datos3" value="#{beanMenu.bienvenida}"> </p:outputLabel></strong></td>
+						</tr>		
+						<tr>
+							<td><strong><p:outputLabel styleClass="datos1" value="#{beanMenu.nombresolicitante}"></p:outputLabel><p:outputLabel styleClass="datos2" value="#{beanMenu.apellidosolicitante}"></p:outputLabel></strong></td>					
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	</center>
+	
+	<h:form><center>
+		<div id="div">
+			<p:breadCrumb>
+    			<p:menuitem value="#{beanMenu.opcion1}" url="menu.xhtml">
+        			<f:param name="i" value="0" />
+    			</p:menuitem>
+    			<p:menuitem value="#{beanMenu.opcion1}" url="menu.xhtml">
+        			<f:param name="i" value="0" />
+    			</p:menuitem>
+    			<p:menuitem value="Estructura" url="organigrama.xhtml">
+       					<f:param name="i" value="6" />
+    				</p:menuitem>
+    			<p:menuitem value="#{beanMenu.opcion2}" url="registrarsolicitud.xhtml">
+        			<f:param name="i" value="1" />
+    			</p:menuitem>
+    			<p:menuitem value="#{beanMenu.opcion3}" url="consultaciudadana.xhtml">
+        			<f:param name="i" value="2" />
+    			</p:menuitem>
+    			<p:menuitem value="#{beanMenu.opcion4}" url="registrarreposicion.xhtml">
+        			<f:param name="i" value="3" />
+    			</p:menuitem>
+    			<p:menuitem value="#{beanMenu.opcion5}" action="#{beanConsultaCiudadana.cerrarsesion()}" url="index.xhtml">
+        			<f:param name="i" value="4" />
+    			</p:menuitem>
+			</p:breadCrumb>
+		</div>
+		<br></br>
+		<br></br>			
+		<h1 id="titulo">ESTRUCTURA ORGANIZACIONAL</h1>
+		<img src="organigramasanfrancisco.png" WIDTH="975" HEIGHT="525"/>
+	</center></h:form>	
+</h:body> 
+</html>

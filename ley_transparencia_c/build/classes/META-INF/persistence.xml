@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="LeyTransparencia" transaction-type="RESOURCE_LOCAL">
+		<class>modelo.Area</class>
+		<class>modelo.Ciudad</class>
+		<class>modelo.Departamento</class>
+		<class>modelo.Empresa</class>
+		<class>modelo.Estado</class>
+		<class>modelo.Gestionador</class>
+		<class>modelo.Peticion</class>
+		<class>modelo.Tipoinformacion</class>
+		<class>modelo.Usuario</class>
+		
+		
+
+		<properties>
+
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ley_transparencia"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="root"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="eclipselink.jdbc.read-connections.max" value="15"/>
+			<property name="eclipselink.jdbc.read-connections.min" value="3"/>
+			<property name="eclipselink.jdbc.write-connections.min" value="4"/>
+			<property name="eclipselink.jdbc.write-connections.max" value="10"/>
+			<property name="eclipselink.target-database" value="MySQL"/>
+			
+		</properties>
+	</persistence-unit>
+</persistence>

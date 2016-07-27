@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="dise_registrarsolicitud.css"/>
+	<title>DerechoDePEticion</title>
+</h:head> 
+<h:body>
+	<center>
+	<table>
+		<tr>
+			<td><img src="logoucatolica.png"/> </td>
+			<td>
+				<div class="centro">
+					<table>	
+						<tr>
+							<td><strong><p:outputLabel styleClass="datos3" value="#{beanRegistrarReposicion.bienvenida}"> </p:outputLabel></strong></td>
+						</tr>		
+						<tr>
+							<td><strong><p:outputLabel styleClass="datos1" value="#{beanRegistrarReposicion.nombresolicitante}"></p:outputLabel><p:outputLabel styleClass="datos2" value="#{beanRegistrarReposicion.apellidosolicitante}"></p:outputLabel></strong></td>					
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	</center>	
+	
+	<h:form>
+		<center>
+			<div id="div">
+				<p:breadCrumb>
+    				<p:menuitem value="#{beanRegistrarReposicion.opcion1}" url="menu.xhtml">
+       					<f:param name="i" value="0" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanRegistrarReposicion.opcion1}" url="menu.xhtml">
+       					<f:param name="i" value="0" />
+    				</p:menuitem>
+    				<p:menuitem value="Estructura" url="organigrama.xhtml">
+       					<f:param name="i" value="6" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanRegistrarReposicion.opcion2}" url="registrarsolicitud.xhtml">
+       					<f:param name="i" value="1" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanRegistrarReposicion.opcion3}" url="consultaciudadana.xhtml">
+       					<f:param name="i" value="2" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanRegistrarReposicion.opcion4}" url="registrarreposicion.xhtml">
+       					<f:param name="i" value="3" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanRegistrarReposicion.opcion5}" action="#{beanConsultaCiudadana.cerrarsesion()}" url="index.xhtml">
+        				<f:param name="i" value="4" />
+    				</p:menuitem>
+				</p:breadCrumb>
+			</div>		
+		<br></br>
+		<br></br>
+		<h1 id="titulo">FORMULARIO DE DERECHO DE REPOSICIÓN</h1>
+		<h6 id="nota1">* Los datos que tengan * son de carácter obligatorio.</h6>		
+		<h3 id="nota">Elija el número de la petición a la cual le desea realizar la reposición.</h3>
+		
+		<p:selectOneMenu id="Peticion" value="#{beanRegistrarReposicion.peticion}" style="width:150px">
+				<f:selectItem itemLabel="N° petición" itemValue="" noSelectionOption="true" />
+				<f:selectItems value="#{beanRegistrarReposicion.peticiones}" />
+				<p:ajax  execute="Peticion" render="entidad" listener="#{beanRegistrarReposicion.cargardatos()}" update="entidad"></p:ajax>				
+				<p:ajax  execute="Peticion" render="tipo" listener="#{beanRegistrarReposicion.cargardatos()}" update="tipo"></p:ajax>				
+				<p:ajax  execute="Peticion" render="area" listener="#{beanRegistrarReposicion.cargardatos()}" update="area"></p:ajax>
+				<!--<p:ajax  execute="Peticion" render="labeltipo" listener="#{beanRegistrarReposicion.cargardatos()}" update="labeltipo"></p:ajax>
+				<p:ajax  execute="Peticion" render="labelentidad" listener="#{beanRegistrarReposicion.cargardatos()}" update="labelentidad"></p:ajax>
+				<p:ajax  execute="Peticion" render="labelarea" listener="#{beanRegistrarReposicion.cargardatos()}" update="area"></p:ajax> -->
+		</p:selectOneMenu>
+		<br></br>
+		<br></br>
+		<p:outputLabel id="labelentidad" styleClass="msj3" value="#{beanRegistrarReposicion.textlabelentidad}"></p:outputLabel><p:outputLabel id="entidad" styleClass="datos2" value="#{beanRegistrarReposicion.nombreentidad}"></p:outputLabel>	
+		<br></br>
+		<br></br>
+		<p:outputLabel id="labelarea" styleClass="msj42" value="#{beanRegistrarReposicion.textlabelarea}"></p:outputLabel><p:outputLabel styleClass="datos2" value="#{beanRegistrarReposicion.areaentidad}" id="area"></p:outputLabel>
+    	<br></br>    		
+    	<br></br>
+		<p:outputLabel id="labeltipo" styleClass="msj4" value="#{beanRegistrarReposicion.textlabeltipo}"></p:outputLabel><p:outputLabel styleClass="datos2" value="#{beanRegistrarReposicion.tipoinformacion}" id="tipo"></p:outputLabel>        
+    	<br></br>
+    	<br></br>
+    	<table>
+       		<tr>
+       			<td><p:outputLabel styleClass="msj7" value="#{beanRegistrarReposicion.textlabelobservaciones}"></p:outputLabel></td>
+				<td><p:inputTextarea value="#{beanRegistrarReposicion.observaciones}" rows="5" cols="30" maxlength="250" counterTemplate="{0} caracteres disponibles." autoResize="false" /></td>
+    			<p:outputLabel value="#{beanRegistrarReposicion.empresa}"/>
+    		</tr>
+    		<tr>
+	    		<td class="transparente"></td>
+    			<td><h:outputText styleClass="display" /></td>
+    		</tr>
+    	</table>
+    	<h6 id="nota2">*Medio por el cual nos podemos comunicar en caso de alguna inquietud.</h6>
+    	<table>
+    		<tr>
+    			<td align="left">
+    				<p:selectManyCheckbox>
+						<f:selectItem itemLabel="#{beanRegistrarReposicion.checkboxcooreo}" itemValue="#{beanRegistrarReposicion.checkboxcooreo}" />
+					</p:selectManyCheckbox>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<p:selectManyCheckbox>
+						<f:selectItem itemLabel="#{beanRegistrarReposicion.checkboxcelular}" itemValue="#{beanRegistrarReposicion.checkboxcelular}" />
+					</p:selectManyCheckbox>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<p:selectManyCheckbox>
+						<f:selectItem itemLabel="#{beanRegistrarReposicion.checkboxdireccionfisica}" itemValue="#{beanRegistrarReposicion.checkboxdireccionfisica}" />
+					</p:selectManyCheckbox>
+				</td>
+			</tr>
+		</table>
+    	<br />
+    	<p:commandButton styleClass="previsualizacion" value="Cargar" actionListener="#{beanRegistrarReposicion.previsualizacion()}">
+    		<p:ajax  execute="Peticion" render="entidad"></p:ajax>
+    	
+			
+    	</p:commandButton>
+    	
+    	 		
+		<!-- <p:commandButton styleClass="previsualizacion" value="#{beanRegistrarReposicion.textbotonprevisualizacion}" actionListener="#{beanRegistrarReposicion.previsualizacion()}">
+			<p:fileDownload value="#{beanRegistrarReposicion.file}" />
+    	</p:commandButton> -->
+	   	<br />
+		<br />
+		<p:commandButton styleClass="enviar" value="#{beanRegistrarReposicion.textbotonenviar}" action="#{beanRegistrarReposicion.registrar_reposicion()}"/>
+	</center></h:form>
+	<br />
+	<br />
+</h:body> 
+</html>

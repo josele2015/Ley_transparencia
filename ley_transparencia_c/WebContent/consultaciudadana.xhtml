@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="dese_consultaciudadana.css"/>
+	<title>DerechoDePEticion</title>
+</h:head> 
+<h:body>
+	<center>
+	<table>
+		<tr>
+			<td><img src="logoucatolica.png"/> </td>
+			<td>
+				<div class="centro">
+					<table>	
+						<tr>
+							<td><strong><p:outputLabel styleClass="datos3" value="#{beanConsultaCiudadana.bienvenida}"> </p:outputLabel></strong></td>
+						</tr>		
+						<tr>
+							<td><strong><p:outputLabel styleClass="datos1" value="#{beanConsultaCiudadana.nombresolicitante}"></p:outputLabel><p:outputLabel styleClass="datos2" value="#{beanConsultaCiudadana.apellidosolicitante}"></p:outputLabel></strong></td>					
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+	</center>
+	
+	<h:form>
+		<center>
+			<div id="div">
+				<p:breadCrumb>
+    				<p:menuitem value="#{beanConsultaCiudadana.opcion1}" url="menu.xhtml">
+       					<f:param name="i" value="0" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanConsultaCiudadana.opcion1}" url="menu.xhtml">
+       					<f:param name="i" value="0" />
+    				</p:menuitem>
+    				<p:menuitem value="Estructura" url="organigrama.xhtml">
+       					<f:param name="i" value="6" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanConsultaCiudadana.opcion2}" url="registrarsolicitud.xhtml">
+       					<f:param name="i" value="1" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanConsultaCiudadana.opcion3}" url="consultaciudadana.xhtml">
+       					<f:param name="i" value="2" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanConsultaCiudadana.opcion4}" url="registrarreposicion.xhtml">
+       					<f:param name="i" value="3" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanConsultaCiudadana.opcion5}" action="#{beanConsultaCiudadana.cerrarsesion()}" url="index.xhtml">
+        				<f:param name="i" value="4" />
+    				</p:menuitem>
+				</p:breadCrumb>
+			</div>
+		<br></br>
+		<br></br>			
+		<h1 id="titulo">SOLICITUDES ENVIADAS</h1>					
+		<p:dataTable id="aa" value="#{beanConsultaCiudadana.mostrar2}" var="car" style="width:70%;">
+			
+			<p:column headerText="Número de registro" style="width:5px;" >
+				<center>
+					<h:outputText value="#{car.id}" />
+				</center>
+			</p:column>
+			
+			<p:column headerText="Fecha de solicitud" style="width:45px;">
+				<center>
+					<h:outputText value="#{car.fechaPeticion}" />
+				</center>
+			</p:column>
+			
+			<p:column headerText="Estado de solicitud" style="width:35px;">
+				<center>
+					<h:outputText value="#{car.nombreestado}" />
+				</center>
+			</p:column>			
+			
+			<p:column headerText="Descargas" style="width:15px;">
+				<center>
+					<h:commandButton value="Descargar" id="ajax" rendered="#{car.descarga != beanConsultaCiudadana.condicion}" ajax="false" update="growl" actionListener="#{beanConsultaCiudadana.FileDownloadView(car.id)}">
+						<p:fileDownload value="#{beanConsultaCiudadana.file}" />
+    				</h:commandButton>
+    			</center>
+			</p:column>
+			
+		</p:dataTable>		
+		</center>
+	</h:form>	
+</h:body> 
+</html>

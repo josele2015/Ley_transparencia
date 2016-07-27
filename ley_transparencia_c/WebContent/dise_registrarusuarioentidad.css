@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+#labelanaranjado{
+	color:#FFA834;
+}
+
+#labelazul{
+	color:#0C59CF;
+}
+
+#botonregistrar{
+	border: solid #FFFFFF;
+	background: #92D36E;
+}
+
+#transparente{
+	color: #C0C0C0;
+}

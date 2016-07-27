@@ -1,0 +1,30 @@
+@CHARSET "ISO-8859-1";
+.botoniniciar{
+	background:#FFA834;
+	border:solid #c0c0c0;
+	color:#FFFFFF
+}
+
+.botonregistrar{
+	background:#0C59CF;
+	border:solid #c0c0c0;
+	color:#FFFFFF;
+}
+
+.botonregistrars{
+	background:#0C59CF;
+	border:solid #c0c0c0;
+	color:#FFFFFF;
+}
+
+.link{
+	color:blue;
+}
+
+.caja{
+	color:gray;
+}
+
+.cajas{
+	color:gray;
+}

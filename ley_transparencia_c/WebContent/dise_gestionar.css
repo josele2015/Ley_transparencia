@@ -1,0 +1,43 @@
+@CHARSET "ISO-8859-1";
+#titulo{
+	color: #629C44;
+}
+
+#enviar{
+	background: #FFB253;
+	color: #FFFFFF;
+}
+
+.documento{
+	background: #A8C6FA;
+}
+
+#label1{
+	color:#0C59CF;
+}
+
+#mostrar1{
+	color:#0C59CF;
+}
+
+#mostrar2{
+	color:#0C59CF;
+}
+
+#div{
+	float: left;
+	width: 63%;
+	margin-left: 17%;
+	margin-right: 17%;
+}
+
+#div2{
+	float: left;
+	width: 63%;
+	margin-left: 17%;
+	margin-right: 17%;
+}
+
+#titulo{
+	color: #629C44;
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="dise_gestionar.css"/>
+	<title>DerechoDePEticion</title>
+</h:head> 
+<h:body>
+	<center><img src="logoucatolica.png"/></center>
+	<h:form  prependId="false" enctype="multipart/form-data">
+		<center>
+			<div id="div">	
+				<p:tabMenu activeIndex="#{beanGestionarSoli.i}">
+    				<p:menuitem value="#{beanGestionarSoli.opcion1}" icon="ui-icon-star" url="menugestionador.xhtml">
+        				<f:param name="i" value="0" />
+    				</p:menuitem>
+	    			<p:menuitem value="#{beanGestionarSoli.opcion2}" icon="ui-icon-search" url="solicitudes.xhtml">
+        				<f:param name="i" value="1" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanGestionarSoli.opcion3}" icon="ui-icon-document">
+       					<f:param name="i" value="2" />
+   					</p:menuitem>
+   					<p:menuitem value="#{beanGestionarSoli.opcion4}" icon="ui-icon-document" url="estadisticos.xhtml">
+        				<f:param name="i" value="3" />
+    				</p:menuitem>
+    				<p:menuitem value="#{beanGestionarSoli.opcion5}" icon="ui-icon-document" url="index.xhtml">
+        				<f:param name="i" value="4" />
+        			</p:menuitem>
+				</p:tabMenu>
+			</div>
+			<BR></BR>
+			<BR></BR>
+			<br></br>
+			<h1 id="titulo">GESTIONAR SOLICITUD</h1>
+		
+			<H2>
+				<p:outputLabel styleClass="mostrar1" value="#{beanGestionarSoli.textlabelnumerosolicitud}"></p:outputLabel>
+			</H2>
+						
+			<p:selectOneMenu styleClass="Peticion" value="#{beanGestionarSoli.peticion}" style="width:150px">
+				<f:selectItem itemLabel="N° peticion" itemValue="" noSelectionOption="true" />
+				<f:selectItems value="#{beanGestionarSoli.peticioness}" />
+			</p:selectOneMenu>
+				
+			<H2>
+				<p:outputLabel styleClass="mostrar2" value="#{beanGestionarSoli.textlabelsubirinfo}"></p:outputLabel>
+			</H2>
+		
+			<p:fileUpload  value="#{beanGestionarSoli.file}" mode="simple" skinSimple="true" description="Resume"/>
+		
+			<H2>
+				<p:outputLabel styleClass="label1" value="#{beanGestionarSoli.textlabelestadosolu}"></p:outputLabel>
+			</H2>
+
+			<p:selectOneMenu styleClass="estados" value="#{beanGestionarSoli.estado}" style="width:150px">
+				<f:selectItem itemLabel="Seleccionar estado" itemValue="0" noSelectionOption="true" />
+				<f:selectItems value="#{beanGestionarSoli.estadoss}" />
+			</p:selectOneMenu>
+									 	 		
+	  		<p:separator/>
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />	  	
+			<p:commandButton styleClass="enviar" value="#{beanGestionarSoli.textbotonenviar}" ajax="false" action="#{beanGestionarSoli.RealizarCambio()}"/>
+		</center>    
+    </h:form>
+</h:body>
+</html>
